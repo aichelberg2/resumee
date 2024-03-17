@@ -1,24 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import SplineRender from './Components/SplineRender';
+import Header from './Components/Header';
+import Sidebar from './Components/Sidebar';
+import React from 'react';
+import Welcome from './Descriptions/Welcome';
 
 function App() {
+  const [ headerTitle, setHeaderTitle ] = React.useState<string>('Home Automation');
+  const [ sidebarPage, setSidebarPage ] = React.useState<JSX.Element>(Welcome);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="resumee">
+      <SplineRender setHeaderTitle={setHeaderTitle} setSidebarPage={setSidebarPage} />
+      <Header title={headerTitle} />
+      <Sidebar content={sidebarPage} />
     </div>
   );
 }
