@@ -12,14 +12,10 @@ type DataPointType = {
 }
 
 const Dashboard = () => {
-  const [ ws, setWs ] = useState<WebSocket | null>(null);
   const splineApp = useRef<Application | null>(null);
   const splineRef = useRef<HTMLDivElement | null>(null);
   const [ floor, setFloor ] = useState<'EG' | 'OG'>('EG');
   const [ isLightVisible, setIsLightVisible ] = useState(true);
-  const wsRef = useRef<WebSocket | null>(null);
-  wsRef.current = ws;
-
   const [ dataPoints, setDataPoints ] = useState<Map<string, DataPointType>>(
     new Map<string, DataPointType>([
       [ 'Light Group Tv', { floor: 'EG', address: 'light-group-tv', value: false } ],
@@ -98,11 +94,15 @@ const Dashboard = () => {
       const canvas = splineRef.current.querySelector('canvas');
       if (canvas) {
         const maxWidth = window.innerWidth;
-        const maxHeight = window.innerHeight - 300;
-        const size = Math.min(maxWidth, maxHeight) + 'px';
+        const maxHeight = window.innerHeight - 400;
+        let size = Math.min(maxWidth, maxHeight);
 
-        canvas.style.width = size;
-        canvas.style.height = size;
+        if (size < 200)
+          size = 200;
+
+        const sizeString = size + 'px';
+        canvas.style.width = sizeString;
+        canvas.style.height = sizeString;
       }
     }
   };

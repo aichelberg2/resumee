@@ -7,32 +7,32 @@
   z-index: 2;
   overflow-y: auto;
   overflow-x: hidden;
-  transition: transform 0.3s ease;
+  transition: transform 0.1s ease;
   transform-origin: top;
 
   &.hidden {
     transform: scaleY(0);
   }
-}
 
-.sidebar .title {
-  font-size: 2em;
-  color: var(--text-color);
-  margin: 0;
-  padding: 20px 24px 24px 24px;
-  text-align: top;
-}
+  .title {
+    font-size: 2em;
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px 24px 24px 24px;
+    text-align: top;
+  }
 
-.sidebar .content {
-  padding: 0 24px 24px;
-}
+  .content {
+    padding: 0 24px 24px;
+  }
 
-.sidebar .image {
-  padding: 0 24px 24px 24px;
-}
+  .image {
+    padding: 0 24px 24px 24px;
+  }
 
-.sidebar img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
 }

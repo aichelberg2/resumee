@@ -26,8 +26,9 @@ button:active {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100%;
   vertical-align: middle;
+  padding: 0 24px 24px;
 }
 
 .controls {
@@ -39,4 +40,9 @@ button:active {
 
 .floor {
   font-size: 32px;
+}
+
+canvas {
+  display: block;
+  margin: 0 auto;
 }
