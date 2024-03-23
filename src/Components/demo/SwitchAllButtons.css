@@ -1,0 +1,23 @@
+.all-button-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.all-button {
+  margin: 0 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  cursor: pointer;
+  width: 60px;
+  outline: #333 2px solid;
+  background-color: #0F0F0F;
+}
+
+.all-icon {
+  width: 80%;
+  height: auto;
+  z-index: 1;
+}

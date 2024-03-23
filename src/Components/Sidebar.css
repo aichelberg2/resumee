@@ -3,11 +3,16 @@
   top: 0;
   right: 0;
   width: 600px;
-  height: 100%;
   background-color: rgba(0, 0, 0, 0.9);
   z-index: 2;
   overflow-y: auto;
   overflow-x: hidden;
+  transition: transform 0.3s ease;
+  transform-origin: top;
+
+  &.hidden {
+    transform: scaleY(0);
+  }
 }
 
 .sidebar .title {
@@ -24,7 +29,6 @@
 
 .sidebar .image {
   padding: 0 24px 24px 24px;
-  margin-bottom: 24px;
 }
 
 .sidebar img {

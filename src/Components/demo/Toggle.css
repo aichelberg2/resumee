@@ -1,0 +1,67 @@
+.toggleContainer {
+  width: 200px;
+  height: 100px;
+  background-color: #333;
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  overflow: hidden;
+  margin-bottom: 20px;
+  transition: transform 0.2s ease;
+
+  .circle {
+    background-color: #0F0F0F;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    width: 40%;
+    height: 80%;
+    transition: all 0.3s ease;
+    z-index: 0;
+  }
+
+  .icon {
+    width: 25%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) scale(0.7);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1;
+    opacity: 0.3;
+  }
+
+  .iconVisible {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+
+  .icon:first-of-type {
+    left: 12%;
+  }
+
+  .icon:last-of-type {
+    right: 12%;
+  }
+
+  .circleOn {
+    left: 55%;
+    transform: translateY(-50%);
+    transition: left 0.3s ease;
+  }
+
+  .toggleContainer:focus {
+    outline: none;
+  }
+}
+
+.toggleContainer:hover {
+  transform: translateY(-2px);
+
+  .circle {
+    background-color: #222;
+  }
+}
