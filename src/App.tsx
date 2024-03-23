@@ -22,7 +22,7 @@ export const sidebarPageIndexMap: { [key in number]: sidebarPageNameType } = {
 };
 
 function App() {
-  const [isSidebarOpen, setIsSidebarOpen] = React.useState<boolean>(false);
+  const [isSidebarOpen, setIsSidebarOpen] = React.useState<boolean>(true);
   const [sidebarPageName, setSidebarPageName] =
     React.useState<sidebarPageNameType>("Home Automation");
   const headerRef = useRef<HTMLDivElement>(null);
