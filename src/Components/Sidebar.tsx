@@ -1,32 +1,32 @@
 import React, { useEffect, useRef } from 'react';
 import './Sidebar.css';
-import { sidebarPageNameType } from '../App';
 import Welcome from '../sidebar-pages/Welcome';
 import HomeAutomation from '../sidebar-pages/HomeAutomation';
+import { useAtom } from 'jotai';
+import { headerRefAtom, isMenuVisibleAtom, isSidebarOpenAtom, sidebarPageNameAtom } from '../utils/MainStore';
+import { sidebarPageNameType } from '../utils/MainUtils';
 
-interface SidebarProps {
-  sidebarPageName: sidebarPageNameType;
-  isSidebarOpen: boolean;
-  headerRef: React.RefObject<HTMLDivElement>;
-  isMenuVisible: boolean;
-}
-
-const sidebarPageMap: { [ key in sidebarPageNameType ]: JSX.Element } = {
-  'School': <Welcome />,
-  'University': <Welcome />,
-  'Home Automation': <HomeAutomation />,
-  'Gantry System': <Welcome />,
-  'Product Catalog': <Welcome />,
-  'Welding Guns': <Welcome />,
-  'Digital Learning': <Welcome />,
-  'Switzerland': <Welcome />,
-};
-
-const Sidebar: React.FC<SidebarProps> = ({ sidebarPageName, isSidebarOpen, headerRef, isMenuVisible }) => {
+const Sidebar = () => {
+  const [ sidebarPageName ] = useAtom(sidebarPageNameAtom);
+  const [ isSidebarOpen ] = useAtom(isSidebarOpenAtom);
+  const [ headerRef ] = useAtom(headerRefAtom);
+  const [ isMenuVisible ] = useAtom(isMenuVisibleAtom);
   const sidebarRef = useRef<HTMLDivElement>(null);
 
+  const sidebarPageMap: { [ key in sidebarPageNameType ]: JSX.Element } = {
+    'Welcome': <Welcome />,
+    'School': <HomeAutomation />,
+    'University': <HomeAutomation />,
+    'Home Automation': <HomeAutomation />,
+    'Gantry System': <HomeAutomation />,
+    'Product Catalog': <HomeAutomation />,
+    'Welding Guns': <HomeAutomation />,
+    'Digital Learning': <HomeAutomation />,
+    'Switzerland': <HomeAutomation />,
+  };
+
   const updateSidebarHeight = () => {
-    if (headerRef.current && sidebarRef.current) {
+    if (headerRef && headerRef.current && sidebarRef.current) {
       const headerHeight = headerRef.current.offsetHeight;
       sidebarRef.current.style.marginTop = `${headerHeight}px`;
       sidebarRef.current.style.height = `calc(100% - ${headerHeight}px)`;

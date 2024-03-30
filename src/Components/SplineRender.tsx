@@ -1,14 +1,10 @@
 import React from 'react';
 import Spline, { SplineEvent } from '@splinetool/react-spline';
 import './SplineRender.css';
-import { sidebarPageNameType } from '../App';
-
-
-interface SplineRenderProps {
-  setSidebarPageName: React.Dispatch<React.SetStateAction<sidebarPageNameType>>;
-  setIsMenuVisible: React.Dispatch<React.SetStateAction<boolean>>;
-  setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
+import { Application } from '@splinetool/runtime';
+import { useAtom } from 'jotai';
+import { isLoadingAtom, isMenuVisibleAtom, isSidebarOpenAtom, sidebarPageNameAtom, splineRefAtom } from '../utils/MainStore';
+import { sidebarPageNameType } from '../utils/MainUtils';
 
 const sidebarPageIndexMap: { [ key in number ]: sidebarPageNameType } = {
   0: 'School',
@@ -32,10 +28,21 @@ const transitionDurations: { [ key in number ]: number } = {
   7: 6,
 };
 
-const SplineRender: React.FC<SplineRenderProps> = ({ setSidebarPageName, setIsMenuVisible, setIsSidebarOpen }) => {
+const SplineRender = () => {
+  const [ , setSidebarPageName ] = useAtom(sidebarPageNameAtom);
+  const [ , setIsMenuVisible ] = useAtom(isMenuVisibleAtom);
+  const [ , setIsSidebarOpen ] = useAtom(isSidebarOpenAtom);
+  const [ , setIsLoading ] = useAtom(isLoadingAtom);
+  const [ , setSplineRef ] = useAtom(splineRefAtom);
+
   const numPages = Object.keys(sidebarPageIndexMap).length;
 
-  const onLoad = () => {
+  const onLoad = (splineApp: Application) => {
+    setSplineRef(splineApp);
+
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 10000);
   }
 
   const onMouseDown = (event: SplineEvent) => {
@@ -74,15 +81,9 @@ const SplineRender: React.FC<SplineRenderProps> = ({ setSidebarPageName, setIsMe
 
   return (
     <div className='spline'>
-      {/* {
-        (loading) ?
-          <div className='loading'>Loading...</div>
-          :
-          <></>
-      } */}
       <Spline
         scene='https://prod.spline.design/pRIHRNXN4BzzYFVF/scene.splinecode'
-        onLoad={onLoad}
+        onLoad={(e) => onLoad(e)}
         onMouseDown={onMouseDown}
       />
     </div>

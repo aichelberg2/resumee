@@ -30,7 +30,7 @@
   .sidebar-toggle {
     font-size: 1em;
     color: var(--text-color);
-    padding: 20px 12px 24px;
+    padding: 20px 24px 24px 12px;
     min-width: 64px;
     text-align: right;
   }
@@ -66,6 +66,14 @@
       width: 64px;
       object-fit: contain;
       border-radius: 5px;
+    }
+
+    &.big {
+      width: 152px;
+
+      img {
+        width: 152px;
+      }
     }
   }
 

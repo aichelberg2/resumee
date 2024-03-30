@@ -1,17 +1,46 @@
+import { useTranslation } from "react-i18next";
+import { contentFolder, getJsxFromString } from "../utils/MainUtils";
+import { useAtom } from "jotai";
+import { isLoadingAtom, isMenuVisibleAtom, isSidebarOpenAtom, sidebarPageNameAtom, splineRefAtom } from "../utils/MainStore";
+
 const Welcome = () => {
+  const [ , setIsMenuVisible ] = useAtom(isMenuVisibleAtom);
+  const [ , setIsSidebarOpen ] = useAtom(isSidebarOpenAtom);
+  const [ , setSidebarPageName ] = useAtom(sidebarPageNameAtom);
+  const [ isLoading ] = useAtom(isLoadingAtom);
+  const [ splineRef ] = useAtom(splineRefAtom);
+
+  const { t } = useTranslation();
+
+  const onPlay = () => {
+    if (!splineRef)
+      return;
+
+    splineRef.emitEvent("keyDown", "Camera Group");
+
+    setIsMenuVisible(false);
+    setIsSidebarOpen(false);
+
+    setTimeout(() => {
+      setSidebarPageName('School');
+      setIsMenuVisible(true)
+      setIsSidebarOpen(true);
+    }, 5000);
+  };
+
   return (
     <div className='welcome'>
-      <div className='title'>
-        Welcome
+      <div className="image-with-text">
+        {getJsxFromString('welcome-p1', t)}
+        <div className='image'>
+          <img src={contentFolder + 'portrait.jpg'} alt='Portrait' />
+        </div>
       </div>
-      <div className='content'>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </div>
-      <div className='content'>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </div>
-      <div className='image'>
-        <img src='https://www.w3schools.com/w3images/map.jpg' alt='Map' />
+      {getJsxFromString('welcome-p2', t)}
+      <div className="play">
+        <button disabled={isLoading} onClick={onPlay}>
+          {(isLoading ? t('loading') : t('play'))}
+        </button>
       </div>
     </div>
   );

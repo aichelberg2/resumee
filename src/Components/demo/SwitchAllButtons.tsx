@@ -1,5 +1,6 @@
 import React from 'react';
 import './SwitchAllButtons.css';
+import { contentFolder } from '../../utils/MainUtils';
 
 interface SwitchAllButtonsProps {
   onToggle: (isOn: boolean) => void;
@@ -7,10 +8,10 @@ interface SwitchAllButtonsProps {
 }
 
 const SwitchAllButtons: React.FC<SwitchAllButtonsProps> = ({ onToggle, isLightVisible }) => {
-  const lampOffSrc = '/resumee/lamp-off.svg';
-  const lampOnSrc = '/resumee/lamp-on.svg';
-  const blindDownSrc = '/resumee/blind-down.svg';
-  const blindUpSrc = '/resumee/blind-up.svg';
+  const lampOffSrc = contentFolder + 'lamp-off.svg';
+  const lampOnSrc = contentFolder + 'lamp-on.svg';
+  const blindDownSrc = contentFolder + 'blind-down.svg';
+  const blindUpSrc = contentFolder + 'blind-up.svg';
 
   return (
     <div className='all-button-container'>

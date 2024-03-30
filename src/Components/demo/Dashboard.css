@@ -29,6 +29,7 @@ button:active {
   height: 100%;
   vertical-align: middle;
   padding: 0 24px 24px;
+  margin-top: 12px;
 }
 
 .controls {
