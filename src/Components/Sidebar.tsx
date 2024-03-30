@@ -1,10 +1,17 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import './Sidebar.css';
 import Welcome from '../sidebar-pages/Welcome';
 import HomeAutomation from '../sidebar-pages/HomeAutomation';
 import { useAtom } from 'jotai';
 import { headerRefAtom, isMenuVisibleAtom, isSidebarOpenAtom, sidebarPageNameAtom } from '../utils/MainStore';
 import { sidebarPageNameType } from '../utils/MainUtils';
+import School from '../sidebar-pages/School';
+import DigitalLearning from '../sidebar-pages/DigitalLearning';
+import CooperativeUniversity from '../sidebar-pages/CooperativeUniversity';
+import GantrySystem from '../sidebar-pages/GantrySystem';
+import ProductCatalog from '../sidebar-pages/ProductCatalog';
+import WeldingGuns from '../sidebar-pages/WeldingGuns';
+import Switzerland from '../sidebar-pages/Switzerland';
 
 const Sidebar = () => {
   const [ sidebarPageName ] = useAtom(sidebarPageNameAtom);
@@ -15,14 +22,14 @@ const Sidebar = () => {
 
   const sidebarPageMap: { [ key in sidebarPageNameType ]: JSX.Element } = {
     'Welcome': <Welcome />,
-    'School': <HomeAutomation />,
-    'University': <HomeAutomation />,
+    'School': <School />,
+    'Cooperative University': <CooperativeUniversity />,
+    'Gantry System': <GantrySystem />,
+    'Product Catalog': <ProductCatalog />,
+    'Welding Guns': <WeldingGuns />,
+    'Digital Learning': <DigitalLearning />,
     'Home Automation': <HomeAutomation />,
-    'Gantry System': <HomeAutomation />,
-    'Product Catalog': <HomeAutomation />,
-    'Welding Guns': <HomeAutomation />,
-    'Digital Learning': <HomeAutomation />,
-    'Switzerland': <HomeAutomation />,
+    'Switzerland': <Switzerland />,
   };
 
   const updateSidebarHeight = () => {
@@ -45,7 +52,7 @@ const Sidebar = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [ headerRef, isSidebarOpen ]);
+  });
 
   return (
     <div className={'sidebar ' + ((isSidebarOpen && isMenuVisible) ? '' : 'hidden')} ref={sidebarRef}>

@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { contentFolder, getJsxFromString } from '../utils/MainUtils';
+import { getJsxFromString } from '../utils/MainUtils';
 import { useAtom } from 'jotai';
 import { isLoadingAtom, isMenuVisibleAtom, isSidebarOpenAtom, sidebarPageNameAtom, splineRefAtom } from '../utils/MainStore';
 
@@ -33,7 +33,7 @@ const Welcome = () => {
       <div className='image-with-text'>
         {getJsxFromString('welcome-p1', t)}
         <div className='image'>
-          <img src={contentFolder + 'portrait.jpg'} alt='Portrait' />
+          <img src={'portrait.jpg'} alt='Portrait' />
         </div>
       </div>
       {getJsxFromString('welcome-p2', t)}

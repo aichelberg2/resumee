@@ -4,52 +4,7 @@ import { useTranslation } from 'react-i18next';
 import i18n from '../locale/i18n';
 import { useAtom } from 'jotai';
 import { setHeaderRefAtom, isMenuVisibleAtom, isSidebarOpenAtom, localeAtom, sidebarPageNameAtom } from '../utils/MainStore';
-import { contentFolder, sidebarPageNameType } from '../utils/MainUtils';
-
-const bigIcons = [
-  'festo.png',
-]
-
-const iconMap: { [ key in sidebarPageNameType ]: string[] } = {
-  'Welcome': [
-  ],
-  'School': [
-    'antme.png',
-    'csharp-for-kids.jpg',
-    'sia.png',
-  ],
-  'University': [
-    'festo.png',
-    'dhbw.png',
-  ],
-  'Gantry System': [
-    'dotnet.png',
-    'omnisharp.png',
-    'typescript.png',
-  ],
-  'Product Catalog': [
-    'dotnet.png',
-    'csharp.png',
-    'visual-studio.png',
-  ],
-  'Welding Guns': [
-    'dotnet.png',
-    'xunit.png',
-    'codebeamer.png',
-  ],
-  'Digital Learning': [
-    'dotnet.png',
-    'react.png',
-    'typescript.png',
-  ],
-  'Home Automation': [
-    'knx.png',
-    'node-red.png',
-    'linux.png',
-  ],
-  'Switzerland': [
-  ],
-};
+import { bigIcons, iconMap } from '../utils/MainUtils';
 
 const Header = () => {
   const [ locale, setLocale ] = useAtom(localeAtom);
@@ -62,7 +17,7 @@ const Header = () => {
 
   useEffect(() => {
     setHeaderRef(ref);
-  }, []);
+  }, [ setHeaderRef ]);
 
   const onFullScreen = () => {
     const element = document.documentElement;
@@ -84,13 +39,13 @@ const Header = () => {
     <div className={'header ' + (isMenuVisible ? '' : 'hidden')} ref={ref}>
       <div className='icon-container'>
         <div className='fullscreen controls' onClick={onFullScreen}>
-          <img src={contentFolder + 'fullscreen.svg'} alt='fullscreen' />
+          <img src={'fullscreen.svg'} alt='fullscreen' />
         </div>
         <div className='locale controls' onClick={switchLanguage}>
           {locale === 'de' ?
-            <img src={contentFolder + 'de.svg'} alt='de' />
+            <img src={'de.svg'} alt='de' />
             :
-            <img src={contentFolder + 'en.svg'} alt='en' />
+            <img src={'en.svg'} alt='en' />
           }
         </div>
       </div>
@@ -100,7 +55,7 @@ const Header = () => {
       <div className='icon-container'>
         {iconMap[ sidebarPageName ].map((icon: string, index: number) => (
           <div className={'icon ' + (bigIcons.includes(icon) ? 'big' : '')} key={index}>
-            <img src={contentFolder + icon} alt={sidebarPageName} />
+            <img src={icon} alt={sidebarPageName} />
           </div>
         ))}
       </div>

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Spline, { SplineEvent } from '@splinetool/react-spline';
 import { Application } from '@splinetool/runtime';
 import './Dashboard.css';

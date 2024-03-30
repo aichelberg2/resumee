@@ -1,4 +1,3 @@
-import React from 'react';
 import Spline, { SplineEvent } from '@splinetool/react-spline';
 import './SplineRender.css';
 import { Application } from '@splinetool/runtime';
@@ -8,7 +7,7 @@ import { sidebarPageNameType } from '../utils/MainUtils';
 
 const sidebarPageIndexMap: { [ key in number ]: sidebarPageNameType } = {
   0: 'School',
-  1: 'University',
+  1: 'Cooperative University',
   2: 'Gantry System',
   3: 'Product Catalog',
   4: 'Welding Guns',
@@ -74,6 +73,9 @@ const SplineRender = () => {
 
     setTimeout(() => {
       setSidebarPageName(sidebarPageIndexMap[ newIndex ]);
+    }, 1000);
+
+    setTimeout(() => {
       setIsMenuVisible(true)
       setIsSidebarOpen(true);
     }, transitionDurations[ timerIndex ] * 1000);

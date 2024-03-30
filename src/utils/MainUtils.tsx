@@ -1,4 +1,4 @@
-import { TFunction } from 'i18next'
+import { TFunction } from 'i18next';
 
 // type definitions
 
@@ -17,7 +17,50 @@ export type localeType = 'en' | 'de';
 
 // constants
 
-export const contentFolder = '/resumee/';
+export const bigIcons = [
+  'festo.png',
+]
+
+export const iconMap: { [ key in sidebarPageNameType ]: string[] } = {
+  'Welcome': [
+  ],
+  'School': [
+    'antme.png',
+    'csharp-for-kids.jpg',
+    'sia.png',
+  ],
+  'Cooperative University': [
+    'festo.png',
+    'dhbw.png',
+  ],
+  'Gantry System': [
+    'dotnet.png',
+    'omnisharp.png',
+    'typescript.png',
+  ],
+  'Product Catalog': [
+    'dotnet.png',
+    'csharp.png',
+    'visual-studio.png',
+  ],
+  'Welding Guns': [
+    'dotnet.png',
+    'xunit.png',
+    'codebeamer.png',
+  ],
+  'Digital Learning': [
+    'dotnet.png',
+    'react.png',
+    'typescript.png',
+  ],
+  'Home Automation': [
+    'knx.png',
+    'node-red.png',
+    'linux.png',
+  ],
+  'Switzerland': [
+  ],
+};
 
 // functions
 

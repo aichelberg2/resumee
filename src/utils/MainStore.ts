@@ -11,7 +11,7 @@ export const splineRefAtom = atom<Application | null>(null);
 export const headerRefAtom = atom<React.RefObject<HTMLDivElement> | null>(null);
 export const setHeaderRefAtom = atom(
   null,
-  (get, set, ref: React.RefObject<HTMLDivElement>) => {
+  (_, set, ref: React.RefObject<HTMLDivElement>) => {
     set(headerRefAtom, ref);
   }
 );
