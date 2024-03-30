@@ -1,7 +1,7 @@
-import { useTranslation } from "react-i18next";
-import { contentFolder, getJsxFromString } from "../utils/MainUtils";
-import { useAtom } from "jotai";
-import { isLoadingAtom, isMenuVisibleAtom, isSidebarOpenAtom, sidebarPageNameAtom, splineRefAtom } from "../utils/MainStore";
+import { useTranslation } from 'react-i18next';
+import { contentFolder, getJsxFromString } from '../utils/MainUtils';
+import { useAtom } from 'jotai';
+import { isLoadingAtom, isMenuVisibleAtom, isSidebarOpenAtom, sidebarPageNameAtom, splineRefAtom } from '../utils/MainStore';
 
 const Welcome = () => {
   const [ , setIsMenuVisible ] = useAtom(isMenuVisibleAtom);
@@ -16,7 +16,7 @@ const Welcome = () => {
     if (!splineRef)
       return;
 
-    splineRef.emitEvent("keyDown", "Camera Group");
+    splineRef.emitEvent('keyDown', 'Camera Group');
 
     setIsMenuVisible(false);
     setIsSidebarOpen(false);
@@ -30,14 +30,14 @@ const Welcome = () => {
 
   return (
     <div className='welcome'>
-      <div className="image-with-text">
+      <div className='image-with-text'>
         {getJsxFromString('welcome-p1', t)}
         <div className='image'>
           <img src={contentFolder + 'portrait.jpg'} alt='Portrait' />
         </div>
       </div>
       {getJsxFromString('welcome-p2', t)}
-      <div className="play">
+      <div className='play'>
         <button disabled={isLoading} onClick={onPlay}>
           {(isLoading ? t('loading') : t('play'))}
         </button>

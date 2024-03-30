@@ -1,19 +1,19 @@
-import { TFunction } from "i18next"
+import { TFunction } from 'i18next'
 
 // type definitions
 
 export type sidebarPageNameType =
-  | "Welcome"
-  | "School"
-  | "University"
-  | "Gantry System"
-  | "Product Catalog"
-  | "Welding Guns"
-  | "Digital Learning"
-  | "Home Automation"
-  | "Switzerland";
+  | 'Welcome'
+  | 'School'
+  | 'Cooperative University'
+  | 'Gantry System'
+  | 'Product Catalog'
+  | 'Welding Guns'
+  | 'Digital Learning'
+  | 'Home Automation'
+  | 'Switzerland';
 
-export type localeType = "en" | "de";
+export type localeType = 'en' | 'de';
 
 // constants
 
