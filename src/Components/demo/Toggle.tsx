@@ -19,10 +19,10 @@ const Toggle: React.FC<ToggleProps> = ({ onToggle, setIsLightVisible }) => {
   };
 
   return (
-    <div className="toggleContainer" onClick={toggleSwitch}>
+    <div className='toggleContainer' onClick={toggleSwitch}>
       <div className={`circle ${isOn ? 'circleOn' : ''}`} />
-      <img src={offSrc} className={`icon ${!isOn ? 'iconVisible' : ''}`} alt="Off" />
-      <img src={onSrc} className={`icon ${isOn ? 'iconVisible' : ''}`} alt="On" />
+      <img src={offSrc} className={`icon ${!isOn ? 'iconVisible' : ''}`} alt='Off' />
+      <img src={onSrc} className={`icon ${isOn ? 'iconVisible' : ''}`} alt='On' />
     </div>
   );
 };

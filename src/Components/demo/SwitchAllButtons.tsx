@@ -13,12 +13,12 @@ const SwitchAllButtons: React.FC<SwitchAllButtonsProps> = ({ onToggle, isLightVi
   const blindUpSrc = '/resumee/blind-up.svg';
 
   return (
-    <div className="all-button-container">
-      <button className="all-button off" onClick={() => onToggle(false)}>
-        <img className="all-icon" src={isLightVisible ? lampOffSrc : blindDownSrc} alt="Switch" />
+    <div className='all-button-container'>
+      <button className='all-button off' onClick={() => onToggle(false)}>
+        <img className='all-icon' src={isLightVisible ? lampOffSrc : blindDownSrc} alt='Switch' />
       </button>
-      <button className="all-button on" onClick={() => onToggle(true)}>
-        <img className="all-icon" src={isLightVisible ? lampOnSrc : blindUpSrc} alt="Switch" />
+      <button className='all-button on' onClick={() => onToggle(true)}>
+        <img className='all-icon' src={isLightVisible ? lampOnSrc : blindUpSrc} alt='Switch' />
       </button>
     </div>
   );

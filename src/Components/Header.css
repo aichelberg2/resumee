@@ -4,20 +4,27 @@
   left: 0;
   height: auto;
   width: calc(100% - 24px);
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.9);
   z-index: 2;
   display: flex;
   justify-content: space-between;
   align-items: center;
   text-align: center;
   padding: 0 12px;
+  opacity: 1;
+  transition: opacity 0.5s;
+
+  &.hidden {
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
 
   .title {
     font-size: 3em;
     color: var(--text-color);
     width: 100%;
     margin: 0;
-    padding: 16px 12px 24px;
+    padding: 26px 12px 32px;
   }
 
   .sidebar-toggle {
@@ -47,8 +54,6 @@
     justify-content: center;
     align-items: right;
     padding: 0 12px;
-    min-width: 264px;
-    max-width: 264px;
     height: auto;
   }
 
@@ -61,6 +66,22 @@
       width: 64px;
       object-fit: contain;
       border-radius: 5px;
+    }
+  }
+
+  .controls {
+    padding: 24px 12px;
+    width: 32px;
+
+    img {
+      height: 32px;
+      width: 32px;
+      object-fit: contain;
+      border-radius: 5px;
+    }
+
+    :hover {
+      cursor: pointer;
     }
   }
 }

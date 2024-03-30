@@ -3,29 +3,28 @@ import SplineRender from './components/SplineRender';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import React, { useRef } from 'react';
+import { I18nextProvider } from 'react-i18next';
+import i18n from './locale/i18n';
 
-export type sidebarPageNameType = 'Welcome' | 'Gantry System' | 'Product Catalog' | 'Welding Guns' | 'Digital Learning' | 'Home Automation';
-
-export const sidebarPageIndexMap: { [ key in number ]: sidebarPageNameType } = {
-  0: 'Welcome',
-  1: 'Gantry System',
-  2: 'Product Catalog',
-  3: 'Welding Guns',
-  4: 'Digital Learning',
-  5: 'Home Automation',
-};
+export type sidebarPageNameType = 'School' | 'University' | 'Gantry System' | 'Product Catalog' | 'Welding Guns' | 'Digital Learning' | 'Home Automation' | 'Switzerland';
+export type localeType = 'en' | 'de';
 
 function App() {
   const [ isSidebarOpen, setIsSidebarOpen ] = React.useState<boolean>(false);
-  const [ sidebarPageName, setSidebarPageName ] = React.useState<sidebarPageNameType>('Home Automation');
+  const [ sidebarPageName, setSidebarPageName ] = React.useState<sidebarPageNameType>('School');
+  const [ isMenuVisible, setIsMenuVisible ] = React.useState<boolean>(true);
+  const [ locale, setLocale ] = React.useState<localeType>(i18n.language as localeType);
+  const [ onInitialLoad, setOnInitialLoad ] = React.useState<boolean>(true);
   const headerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="resumee">
-      {/* <SplineRender setSidebarPage={setSidebarPage} /> */}
-      <Header sidebarPageName={sidebarPageName} ref={headerRef} isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} setSidebarPageName={setSidebarPageName} />
-      <Sidebar sidebarPageName={sidebarPageName} isSidebarOpen={isSidebarOpen} headerRef={headerRef} />
-    </div>
+    <I18nextProvider i18n={i18n}>
+      <div className='resumee'>
+        <SplineRender setSidebarPageName={setSidebarPageName} setIsMenuVisible={setIsMenuVisible} setIsSidebarOpen={setIsSidebarOpen} />
+        <Header sidebarPageName={sidebarPageName} ref={headerRef} isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} isMenuVisible={isMenuVisible} locale={locale} setLocale={setLocale} />
+        <Sidebar sidebarPageName={sidebarPageName} isSidebarOpen={isSidebarOpen} headerRef={headerRef} isMenuVisible={isMenuVisible} />
+      </div>
+    </I18nextProvider>
   );
 }
 

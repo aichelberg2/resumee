@@ -2,16 +2,18 @@
   position: fixed;
   top: 0;
   right: 0;
-  width: 600px;
-  background-color: rgba(0, 0, 0, 0.9);
+  width: 38vw;
+  background-color: rgba(0, 0, 0, 0.8);
   z-index: 2;
   overflow-y: auto;
   overflow-x: hidden;
-  transition: transform 0.1s ease;
+  transition: transform 0.5s ease, opacity 0.5s;
   transform-origin: top;
+  opacity: 1;
 
   &.hidden {
     transform: scaleY(0);
+    opacity: 0;
   }
 
   .title {

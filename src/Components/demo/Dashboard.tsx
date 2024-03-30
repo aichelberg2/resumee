@@ -100,6 +100,9 @@ const Dashboard = () => {
         if (size < 200)
           size = 200;
 
+        if (size > 550)
+          size = 550;
+
         const sizeString = size + 'px';
         canvas.style.width = sizeString;
         canvas.style.height = sizeString;
@@ -110,9 +113,8 @@ const Dashboard = () => {
   const onLoad = (spline: Application) => {
     splineApp.current = spline;
 
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 100; i++)
       adjustCanvasSize();
-    };
   };
 
   const handleAllAction = (isOn: boolean) => {
@@ -147,20 +149,20 @@ const Dashboard = () => {
   }, [ dataPoints ]);
 
   return (
-    <div className="container">
-      <div className="controls">
+    <div className='container'>
+      <div className='controls'>
         <Toggle onToggle={simulateKeyPress} setIsLightVisible={setIsLightVisible} />
         <SwitchAllButtons onToggle={handleAllAction} isLightVisible={isLightVisible} />
       </div>
       <Spline
-        scene="https://prod.spline.design/jvYex-jjqow1uScR/scene.splinecode"
+        scene='https://prod.spline.design/jvYex-jjqow1uScR/scene.splinecode'
         onLoad={onLoad}
         ref={splineRef}
         className='spline-container'
         style={{ width: '100%', height: 'auto' }}
         onMouseDown={onMouseDown}
       />
-      <div className="floor">
+      <div className='floor'>
         {floor}
       </div>
     </div>

@@ -1,18 +1,28 @@
-import React, { forwardRef } from "react";
-import "./Header.css";
-import { sidebarPageIndexMap, sidebarPageNameType } from "../App";
+import React, { forwardRef } from 'react';
+import './Header.css';
+import { localeType, sidebarPageNameType } from '../App';
+import { useTranslation } from 'react-i18next';
+import i18n from '../locale/i18n';
 
 interface HeaderProps {
   sidebarPageName: sidebarPageNameType;
   isSidebarOpen: boolean;
-  setIsSidebarOpen?: React.Dispatch<React.SetStateAction<boolean>>;
-  setSidebarPageName: React.Dispatch<React.SetStateAction<sidebarPageNameType>>;
+  setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  isMenuVisible: boolean;
+  locale: localeType;
+  setLocale: React.Dispatch<React.SetStateAction<localeType>>;
 }
 
 const iconMap: { [ key in sidebarPageNameType ]: string[] } = {
-  'Welcome': [
-    'https://www.w3schools.com/w3images/lights.jpg',
-    'https://www.w3schools.com/w3images/map.jpg',
+  'School': [
+    '/resumee/dotnet.png',
+    '/resumee/csharp.png',
+    '/resumee/visual-studio.png',
+  ],
+  'University': [
+    '/resumee/dotnet.png',
+    '/resumee/csharp.png',
+    '/resumee/visual-studio.png',
   ],
   'Gantry System': [
     '/resumee/dotnet.png',
@@ -39,45 +49,68 @@ const iconMap: { [ key in sidebarPageNameType ]: string[] } = {
     '/resumee/node-red.png',
     '/resumee/linux.png',
   ],
+  'Switzerland': [
+    '/resumee/dotnet.png',
+    '/resumee/csharp.png',
+    '/resumee/visual-studio.png',
+  ],
 };
 
 const Header: React.ForwardRefRenderFunction<HTMLDivElement, HeaderProps> = (
-  { sidebarPageName, isSidebarOpen, setIsSidebarOpen, setSidebarPageName },
+  {
+    sidebarPageName,
+    isSidebarOpen,
+    setIsSidebarOpen,
+    isMenuVisible,
+    locale,
+    setLocale
+  },
   ref
 ) => {
-  const currentIndex = Object.values(sidebarPageIndexMap).indexOf(sidebarPageName);
-  const numPages = Object.keys(sidebarPageIndexMap).length;
+  const { t } = useTranslation();
 
-  const goToPreviousPage = () => {
-    const previousIndex = (currentIndex - 1 + numPages) % numPages;
-    setSidebarPageName(sidebarPageIndexMap[ previousIndex ]);
-  };
+  const onFullScreen = () => {
+    const element = document.documentElement;
 
-  const goToNextPage = () => {
-    const nextIndex = (currentIndex + 1) % numPages;
-    setSidebarPageName(sidebarPageIndexMap[ nextIndex ]);
-  };
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else if (element.requestFullscreen) {
+      element.requestFullscreen();
+    }
+  }
+
+  const switchLanguage = () => {
+    const newLocale = locale === 'de' ? 'en' : 'de';
+    setLocale(newLocale);
+    i18n.changeLanguage(newLocale);
+  }
 
   return (
-    <div className="header" ref={ref}>
-      <div className="navigation-item" onClick={goToPreviousPage}>
-        {'<'}
+    <div className={'header ' + (isMenuVisible ? '' : 'hidden')} ref={ref}>
+      <div className='icon-container'>
+        <div className='fullscreen controls' onClick={onFullScreen}>
+          <img src='/resumee/fullscreen.svg' alt='fullscreen' />
+        </div>
+        <div className='locale controls' onClick={switchLanguage}>
+          {locale === 'de' ?
+            <img src='/resumee/de.svg' alt='de' />
+            :
+            <img src='/resumee/en.svg' alt='en' />
+          }
+        </div>
       </div>
-      <div className="title">
-        {sidebarPageName}
+      <div className='title'>
+        {t(sidebarPageName)}
       </div>
-      <div className="navigation-item" onClick={goToNextPage}>
-        {'>'}
-      </div>
-      <div className="icon-container">
+      <div className='icon-container'>
         {iconMap[ sidebarPageName ].map((icon: string, index: number) => (
-          <div className="icon" key={index}>
+          <div className='icon' key={index}>
             <img src={icon} alt={sidebarPageName} />
           </div>
         ))}
       </div>
       <div
-        className="sidebar-toggle"
+        className='sidebar-toggle'
         onClick={() => setIsSidebarOpen ? setIsSidebarOpen(!isSidebarOpen) : null}
       >
         {isSidebarOpen ? 'Less ▲' : 'More ▼'}
