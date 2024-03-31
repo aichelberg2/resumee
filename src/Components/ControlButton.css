@@ -1,0 +1,29 @@
+.menu-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 12px 0 24px;
+
+  button {
+    font-size: 2em;
+    background-color: var(--white);
+    color: var(--black);
+    border-radius: 40px;
+    padding: 12px 24px;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+  }
+
+  button:hover {
+    background-color: var(--light-light-grey);
+    cursor: pointer;
+    transform: translateY(-3px);
+    z-index: 2;
+  }
+
+  button:disabled {
+    background-color: var(--light-grey);
+    cursor: not-allowed;
+  }
+}

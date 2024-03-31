@@ -1,5 +1,6 @@
+import '../components/ControlButton.css';
 import { useTranslation } from 'react-i18next';
-import { getJsxFromString } from '../utils/MainUtils';
+import { getImageFromSource, getJsxFromString } from '../utils/MainUtils';
 import { useAtom } from 'jotai';
 import { isLoadingAtom, isMenuVisibleAtom, isSidebarOpenAtom, sidebarPageNameAtom, splineRefAtom } from '../utils/MainStore';
 
@@ -32,12 +33,11 @@ const Welcome = () => {
     <div className='welcome'>
       <div className='image-with-text'>
         {getJsxFromString('welcome-p1', t)}
-        <div className='image'>
-          <img src={'portrait.jpg'} alt='Portrait' />
-        </div>
+        {getImageFromSource('portrait.jpg')}
       </div>
       {getJsxFromString('welcome-p2', t)}
-      <div className='play'>
+      {getJsxFromString('welcome-p3', t)}
+      <div className='menu-control'>
         <button disabled={isLoading} onClick={onPlay}>
           {(isLoading ? t('loading') : t('play'))}
         </button>

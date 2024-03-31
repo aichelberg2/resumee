@@ -17,6 +17,31 @@ export type localeType = 'en' | 'de';
 
 // constants
 
+
+export const sidebarPageIndexMap: { [ key in number ]: sidebarPageNameType } = {
+  0: 'School',
+  1: 'Cooperative University',
+  2: 'Gantry System',
+  3: 'Product Catalog',
+  4: 'Welding Guns',
+  5: 'Digital Learning',
+  6: 'Home Automation',
+  7: 'Switzerland',
+};
+
+export const numPages = Object.keys(sidebarPageIndexMap).length;
+
+export const transitionDurations: { [ key in number ]: number } = {
+  0: 4,
+  1: 6,
+  2: 4,
+  3: 3,
+  4: 4,
+  5: 4,
+  6: 4,
+  7: 6,
+};
+
 export const bigIcons = [
   'festo.png',
 ]
@@ -64,6 +89,19 @@ export const iconMap: { [ key in sidebarPageNameType ]: string[] } = {
 
 // functions
 
-export const getJsxFromString = (localeString: string, t: TFunction): JSX.Element => {
-  return <div className='content' dangerouslySetInnerHTML={{ __html: t(localeString) }} />
+export const getPageIndexByName = (value: sidebarPageNameType): number => {
+  for (const key in sidebarPageIndexMap)
+    if (sidebarPageIndexMap.hasOwnProperty(key))
+      if (sidebarPageIndexMap[ key ] === value)
+        return parseInt(key);
+
+  return -1;
 }
+
+export const getJsxFromString = (localeString: string, t: TFunction): JSX.Element =>
+  <div className='content' dangerouslySetInnerHTML={{ __html: t(localeString) }} />
+
+export const getImageFromSource = (source: string): JSX.Element =>
+  <div className='image'>
+    <img src={source} alt={source} />
+  </div>

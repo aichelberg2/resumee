@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import i18n from '../locale/i18n';
 import { useAtom } from 'jotai';
 import { setHeaderRefAtom, isMenuVisibleAtom, isSidebarOpenAtom, localeAtom, sidebarPageNameAtom } from '../utils/MainStore';
-import { bigIcons, iconMap } from '../utils/MainUtils';
+import { bigIcons, iconMap, localeType } from '../utils/MainUtils';
 
 const Header = () => {
   const [ locale, setLocale ] = useAtom(localeAtom);
@@ -14,6 +14,10 @@ const Header = () => {
   const [ , setHeaderRef ] = useAtom(setHeaderRefAtom);
   const ref = React.useRef<HTMLDivElement>(null);
   const { t } = useTranslation();
+
+  useEffect(() => {
+    setLocale(i18n.language as localeType)
+  }, [ i18n.language ]);
 
   useEffect(() => {
     setHeaderRef(ref);

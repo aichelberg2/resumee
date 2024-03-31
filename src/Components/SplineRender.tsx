@@ -2,39 +2,15 @@ import Spline, { SplineEvent } from '@splinetool/react-spline';
 import './SplineRender.css';
 import { Application } from '@splinetool/runtime';
 import { useAtom } from 'jotai';
-import { isLoadingAtom, isMenuVisibleAtom, isSidebarOpenAtom, sidebarPageNameAtom, splineRefAtom } from '../utils/MainStore';
-import { sidebarPageNameType } from '../utils/MainUtils';
-
-const sidebarPageIndexMap: { [ key in number ]: sidebarPageNameType } = {
-  0: 'School',
-  1: 'Cooperative University',
-  2: 'Gantry System',
-  3: 'Product Catalog',
-  4: 'Welding Guns',
-  5: 'Digital Learning',
-  6: 'Home Automation',
-  7: 'Switzerland',
-};
-
-const transitionDurations: { [ key in number ]: number } = {
-  0: 4,
-  1: 6,
-  2: 4,
-  3: 3,
-  4: 4,
-  5: 4,
-  6: 4,
-  7: 6,
-};
+import { goToPageAtom, isLoadingAtom, isMenuVisibleAtom, isSidebarOpenAtom, splineRefAtom } from '../utils/MainStore';
+import { numPages } from '../utils/MainUtils';
 
 const SplineRender = () => {
-  const [ , setSidebarPageName ] = useAtom(sidebarPageNameAtom);
   const [ , setIsMenuVisible ] = useAtom(isMenuVisibleAtom);
   const [ , setIsSidebarOpen ] = useAtom(isSidebarOpenAtom);
   const [ , setIsLoading ] = useAtom(isLoadingAtom);
   const [ , setSplineRef ] = useAtom(splineRefAtom);
-
-  const numPages = Object.keys(sidebarPageIndexMap).length;
+  const [ , goToPage ] = useAtom(goToPageAtom);
 
   const onLoad = (splineApp: Application) => {
     setSplineRef(splineApp);
@@ -71,14 +47,7 @@ const SplineRender = () => {
       return;
     }
 
-    setTimeout(() => {
-      setSidebarPageName(sidebarPageIndexMap[ newIndex ]);
-    }, 1000);
-
-    setTimeout(() => {
-      setIsMenuVisible(true)
-      setIsSidebarOpen(true);
-    }, transitionDurations[ timerIndex ] * 1000);
+    goToPage(newIndex, timerIndex);
   };
 
   return (

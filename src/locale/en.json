@@ -7,9 +7,15 @@
   "Digital Learning": "Digital Learning",
   "Home Automation": "Home Automation",
   "Switzerland": "Switzerland",
-  "welcome-p1": "<h2>Greetings,</h2><p>I am Christian, a proficient software developer boasting <b>4 years</b> of invaluable industry experience. My aspiration is to excel as a specialist in .Net technology.</p><p>Despite my youth, I offer a unique blend of seasoned expertise and cutting-edge innovation.</p>",
-  "welcome-p2": "<p>Presently, I am employed at <b>Festo Didactic SE</b> in the capacity of a Full Stack Developer. Allow me to delve into the journey that led me to this position.</p><p><b>Disclaimer:</b> As mentioned, I am not a professional designer, and this project marks my initial venture into applying design and modeling techniques.</p>",
   "loading": "Loading...",
-  "play": "Play"
-  
+  "play": "Play",
+  "next": "Next",
+  "welcome-p1": "<h2>Greetings,</h2><p>I am Christian, a proficient German software developer boasting <b>4 years</b> of invaluable industry experience. My aspiration is to excel as a specialist in .Net technology.</p><p>Despite my youth, I offer a unique blend of seasoned expertise and cutting-edge innovation.</p>",
+  "welcome-p2": "<p>Presently, I am employed at <b>Festo Didactic SE</b> in the capacity of a Full Stack Developer. Allow me to delve into the journey that led me to this position. Feel free to navigate through the stations using the interactive features provided, accessible via the 'Next' and 'Previous' signs.</p>",
+  "welcome-p3": "<p><b>Disclaimer:</b> As mentioned, I am not a professional designer, and this project marks my initial venture into applying design and modeling techniques.</p>",
+  "school-p1":"<p>My journey in programming commenced at the age of 10, initially captivated by gamified learning platforms such as <b>AntMe</b> and customizable mainstream games. Digging into <b>C# for Kids</b> fortified my understanding of logic, object-oriented programming and the ethos of coding.</p>",
+  "school-p2":"<p>Internships at esteemed firms including <b>EMAG</b>, <b>Heldele</b>, and <b>SE-Electronics</b> further cemented my resolve to pursue a career in this domain upon completing my education.</p>",
+  "school-p3":"<h2>Schüler Ingenieur Akademie</h2><p>During the latter years of my schooling, I seized the opportunity to engage in a year-long seminar project facilitated by Hochschule Esslingen in Göppingen. Collaborating with a diverse cohort of students from various schools, we embarked on constructing a self-driving RC car, leveraging predetermined components like the main chassis, main board and motors (see image) while also exercising our autonomy in decision-making.</p>",
+  "school-p4":"<p>This immersive experience empowered us with early exposure to project management, procurement strategies, technology selection, and implementation methodologies through autonomous decision-making.</p>",
+  "school-p5":"<p>Tasked with adhering to specifications outlined by instructors and product owners, I gained proficiency in embedded programming utilizing <b>C</b>, <b>Arduino</b>, as well as interfacing with sensors and actuators. Furthermore, it provided invaluable insights into collaborative software development within a team dynamic, with sessions scheduled on Fridays from 2 pm onwards, often extending into the  evening hours.</p>"
 }
