@@ -2,15 +2,15 @@ import Spline, { SplineEvent } from '@splinetool/react-spline';
 import './SplineRender.css';
 import { Application } from '@splinetool/runtime';
 import { useAtom } from 'jotai';
-import { goToPageAtom, isLoadingAtom, isMenuVisibleAtom, isSidebarOpenAtom, splineRefAtom } from '../utils/MainStore';
-import { numPages } from '../utils/MainUtils';
+import { goToNextPageAtom, goToPreviousPageAtom, isLoadingAtom, isMenuVisibleAtom, isSidebarOpenAtom, splineRefAtom } from '../utils/MainStore';
 
 const SplineRender = () => {
   const [ , setIsMenuVisible ] = useAtom(isMenuVisibleAtom);
   const [ , setIsSidebarOpen ] = useAtom(isSidebarOpenAtom);
   const [ , setIsLoading ] = useAtom(isLoadingAtom);
   const [ , setSplineRef ] = useAtom(splineRefAtom);
-  const [ , goToPage ] = useAtom(goToPageAtom);
+  const [ , goToPreviousPage ] = useAtom(goToPreviousPageAtom);
+  const [ , goToNextPage ] = useAtom(goToNextPageAtom);
 
   const onLoad = (splineApp: Application) => {
     setSplineRef(splineApp);
@@ -25,29 +25,13 @@ const SplineRender = () => {
     setIsMenuVisible(false);
     setIsSidebarOpen(false);
 
-    let newIndex = 0;
-    let pageIndex = 0;
-    let timerIndex = 0;
+    const getCurrentStation = (direction: string) =>
+      parseInt(targetName.charAt(direction.length)) - 1;
 
-    const getCurrentStation = (move: string) => {
-      return parseInt(targetName.charAt(move.length)) - 1;
-    }
-
-    if (targetName.includes('Previous ')) {
-      pageIndex = getCurrentStation('Previous ');
-      newIndex = (pageIndex - 1 + numPages) % numPages;
-      timerIndex = newIndex;
-    }
-    else if (targetName.includes('Next ')) {
-      pageIndex = getCurrentStation('Next ');
-      newIndex = (pageIndex + 1) % numPages;
-      timerIndex = pageIndex;
-    }
-    else {
-      return;
-    }
-
-    goToPage(newIndex, timerIndex);
+    if (targetName.includes('Previous '))
+      goToPreviousPage(getCurrentStation('Previous '));
+    else if (targetName.includes('Next '))
+      goToNextPage(getCurrentStation('Next '));
   };
 
   return (

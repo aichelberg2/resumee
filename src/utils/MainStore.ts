@@ -2,6 +2,7 @@ import { Application } from "@splinetool/runtime";
 import { atom } from "jotai";
 import {
   localeType,
+  numPages,
   sidebarPageIndexMap,
   sidebarPageNameType,
   transitionDurations,
@@ -38,6 +39,11 @@ export const goToPageAtom = atom(
   }
 );
 
-export const goToNextPage = atom(null, (_, set, pageIndex: number) => {
-  set(goToPageAtom, pageIndex + 1, pageIndex);
+export const goToNextPageAtom = atom(null, (_, set, pageIndex: number) => {
+  set(goToPageAtom, (pageIndex + 1) % numPages, pageIndex);
+});
+
+export const goToPreviousPageAtom = atom(null, (_, set, pageIndex: number) => {
+  const newIndex = (pageIndex - 1 + numPages) % numPages;
+  set(goToPageAtom, newIndex, newIndex);
 });

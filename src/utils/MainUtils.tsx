@@ -37,7 +37,7 @@ export const transitionDurations: { [ key in number ]: number } = {
   2: 4,
   3: 3,
   4: 4,
-  5: 4,
+  5: 6,
   6: 4,
   7: 6,
 };
