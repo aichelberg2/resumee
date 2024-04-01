@@ -15,6 +15,9 @@ export const localeAtom = atom<localeType>("en");
 export const isLoadingAtom = atom<boolean>(true);
 export const splineRefAtom = atom<Application | null>(null);
 export const headerRefAtom = atom<React.RefObject<HTMLDivElement> | null>(null);
+export const sidebarRefAtom = atom<React.RefObject<HTMLDivElement> | null>(
+  null
+);
 
 // actions
 
@@ -25,12 +28,20 @@ export const setHeaderRefAtom = atom(
   }
 );
 
+export const setSidebarRefAtom = atom(
+  null,
+  (_, set, ref: React.RefObject<HTMLDivElement>) => {
+    set(sidebarRefAtom, ref);
+  }
+);
+
 export const goToPageAtom = atom(
   null,
-  (_, set, newIndex: number, timerIndex: number) => {
+  (get, set, newIndex: number, timerIndex: number) => {
     setTimeout(() => {
       set(sidebarPageNameAtom, sidebarPageIndexMap[newIndex]);
-    }, 1000);
+      get(sidebarRefAtom)?.current?.scrollTo(0, 0);
+    }, (transitionDurations[timerIndex] * 1000) / 2);
 
     setTimeout(() => {
       set(isMenuVisibleAtom, true);
