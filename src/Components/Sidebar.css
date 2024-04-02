@@ -59,4 +59,26 @@
     height: auto;
     border-radius: 10px;
   }
+
+  .centered {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .custom-link {
+    color: #AAAAAA;
+    text-decoration: none;
+  }
+
+  .custom-link:hover {
+    color: #CCCCCC;
+  }
+
+  .custom-link:visited {
+    color: #888888;
+  }
+
+  .custom-link:active {
+    color: #FFFFFF;
+  }
 }

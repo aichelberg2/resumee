@@ -1,11 +1,20 @@
 import { TFunction } from 'i18next';
+import Welcome from '../sidebar-pages/Welcome';
+import HomeAutomation from '../sidebar-pages/HomeAutomation';
+import School from '../sidebar-pages/School';
+import DigitalLearning from '../sidebar-pages/DigitalLearning';
+import CooperativeUniversity from '../sidebar-pages/CooperativeUniversity';
+import GantrySystem from '../sidebar-pages/GantrySystem';
+import ProductCatalog from '../sidebar-pages/ProductCatalog';
+import WeldingGuns from '../sidebar-pages/WeldingGuns';
+import Switzerland from '../sidebar-pages/Switzerland';
 
 // type definitions
 
 export type sidebarPageNameType =
   | 'Welcome'
   | 'School'
-  | 'Cooperative University'
+  | 'Cooperative State University'
   | 'Gantry System'
   | 'Product Catalog'
   | 'Welding Guns'
@@ -17,10 +26,21 @@ export type localeType = 'en' | 'de';
 
 // constants
 
+export const sidebarPageMap: { [ key in sidebarPageNameType ]: JSX.Element } = {
+  'Welcome': <Welcome />,
+  'School': <School />,
+  'Cooperative State University': <CooperativeUniversity />,
+  'Gantry System': <GantrySystem />,
+  'Product Catalog': <ProductCatalog />,
+  'Welding Guns': <WeldingGuns />,
+  'Digital Learning': <DigitalLearning />,
+  'Home Automation': <HomeAutomation />,
+  'Switzerland': <Switzerland />,
+};
 
 export const sidebarPageIndexMap: { [ key in number ]: sidebarPageNameType } = {
   0: 'School',
-  1: 'Cooperative University',
+  1: 'Cooperative State University',
   2: 'Gantry System',
   3: 'Product Catalog',
   4: 'Welding Guns',
@@ -54,7 +74,7 @@ export const iconMap: { [ key in sidebarPageNameType ]: string[] } = {
     'csharp-for-kids.jpg',
     'sia.png',
   ],
-  'Cooperative University': [
+  'Cooperative State University': [
     'festo.png',
     'dhbw.png',
   ],
