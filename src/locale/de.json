@@ -11,6 +11,8 @@
   "loading": "Lädt...",
   "play": "Start",
   "next": "Weiter",
+  "continue-anyway": "Trotzdem fortfahren",
+  "please-rotate": "Diese Webseite ist nicht für Mobilgeräte. Bitte drehen Sie das Gerät zum Querformat, um diese Website anzuzeigen.",
   "welcome-p1": "<h2>Guten Tag,</h2><p>Ich bin Christian, ein erfahrener deutscher Softwareentwickler mit <b>4 Jahren</b> wertvoller Branchenpraxis. Mein Ziel ist es, mich als Experte für .NET-Technologie zu etablieren.</p><p>Dank meiner Jugend vereine ich solide Fachkenntnisse mit innovativem Fortschritt.</p>",
   "welcome-p2": "<p>Derzeit arbeite ich als <b>Full-Stack-Entwickler</b> bei <b>Festo Didactic SE</b>. Erlauben Sie mir, Sie auf eine Reise mitzunehmen, die mich zu dieser Position geführt hat. Nutzen Sie die interaktiven Funktionen über die 'Next'- und 'Previous'-Schilder.</p>",
   "welcome-p3": "<p><b>Hinweis:</b> Dieses Projekt markiert meinen ersten Versuch, Design- und Modellierungstechniken anzuwenden. Ich bin kein professioneller Designer.</p>",

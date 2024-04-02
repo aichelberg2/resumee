@@ -33,7 +33,7 @@ const Welcome = () => {
     <div className='welcome'>
       <div className='image-with-text'>
         {getJsxFromString('welcome-p1', t)}
-        {getImageFromSource('portrait.jpg')}
+        {getImageFromSource('christian-gappel.jpg')}
       </div>
       {getJsxFromString('welcome-p2', t)}
       {getJsxFromString('welcome-p3', t)}

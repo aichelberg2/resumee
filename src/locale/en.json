@@ -11,6 +11,8 @@
   "loading": "Loading...",
   "play": "Play",
   "next": "Next",
+  "continue-anyway": "Continue Anyway",
+  "please-rotate": "This website is not optmized for mobile devices. Please rotate your device to landscape mode to view this website.",
   "welcome-p1": "<h2>Greetings,</h2><p>I am Christian, a proficient German software developer boasting <b>4 years</b> of invaluable industry experience. My aspiration is to excel as a specialist in .NET technology.</p><p>Due to my youth, I offer a unique blend of seasoned expertise and cutting-edge innovation.</p>",
   "welcome-p2": "<p>Presently, I am employed at <b>Festo Didactic SE</b> in the capacity of a <b>Full Stack Developer</b>. Allow me to delve into the journey that led me to this position. Feel free to navigate through the stations using the interactive features provided, accessible via the 'Next' and 'Previous' signs.</p>",
   "welcome-p3": "<p><b>Disclaimer:</b> As mentioned, I am not a professional designer and this project marks my initial venture into applying design and modeling techniques.</p>",

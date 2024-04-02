@@ -18,6 +18,10 @@ export const headerRefAtom = atom<React.RefObject<HTMLDivElement> | null>(null);
 export const sidebarRefAtom = atom<React.RefObject<HTMLDivElement> | null>(
   null
 );
+export const isLandscapeAtom = atom<boolean>(
+  window.matchMedia("(orientation: landscape)").matches
+);
+export const breakpointAtom = atom<"sm" | "lg">("lg");
 
 // actions
 
