@@ -8,6 +8,7 @@ import ChangeOrientationMessage from './components/ChangeOrientationMessage';
 import { useAtom } from 'jotai';
 import { isLandscapeAtom } from './utils/MainStore';
 import { useEffect } from 'react';
+import Dashboard from './components/demo/Dashboard';
 
 function App() {
   const [ isLandscape, setIsLandscape ] = useAtom(isLandscapeAtom);
@@ -30,16 +31,19 @@ function App() {
       <div className='resumee'>
         {isLandscape ? (
           <div>
+            <Dashboard />
             <SplineRender />
             <Header />
             <Sidebar />
           </div>
         ) : (
           <ChangeOrientationMessage />
-        )}
+        )
+        }
       </div>
     </I18nextProvider>
   );
+
 }
 
 export default App;

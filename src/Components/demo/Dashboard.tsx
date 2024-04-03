@@ -4,6 +4,8 @@ import { Application } from '@splinetool/runtime';
 import './Dashboard.css';
 import Toggle from './Toggle';
 import SwitchAllButtons from './SwitchAllButtons';
+import { isDemoOpenAtom } from '../../utils/MainStore';
+import { useAtom } from 'jotai';
 
 type DataPointType = {
   floor: 'EG' | 'OG';
@@ -12,6 +14,7 @@ type DataPointType = {
 }
 
 const Dashboard = () => {
+  const [ isDemoOpen, setIsDemoOpen ] = useAtom(isDemoOpenAtom);
   const splineApp = useRef<Application | null>(null);
   const splineRef = useRef<HTMLDivElement | null>(null);
   const [ floor, setFloor ] = useState<'EG' | 'OG'>('EG');
@@ -149,7 +152,10 @@ const Dashboard = () => {
   }, [ dataPoints ]);
 
   return (
-    <div className='container'>
+    <div className={'container' + (isDemoOpen ? ' open' : '')} >
+      < div className='close' onClick={() => setIsDemoOpen(false)}>
+        X
+      </div >
       <div className='controls'>
         <Toggle onToggle={simulateKeyPress} setIsLightVisible={setIsLightVisible} />
         <SwitchAllButtons onToggle={handleAllAction} isLightVisible={isLightVisible} />
@@ -165,7 +171,7 @@ const Dashboard = () => {
       <div className='floor'>
         {floor}
       </div>
-    </div>
+    </div >
   );
 };
 

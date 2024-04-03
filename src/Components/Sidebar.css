@@ -11,6 +11,7 @@
   transition: transform 0.5s ease, opacity 0.5s;
   transform-origin: top;
   opacity: 1;
+  z-index: 3;
 
   &.hidden {
     transform: scaleY(0);
@@ -31,6 +32,10 @@
 
   .image {
     padding: 0 24px 24px;
+  }
+
+  .clickable:hover {
+    cursor: pointer;
   }
 
   .image-with-text {

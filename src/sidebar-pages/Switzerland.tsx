@@ -20,7 +20,7 @@ const Switzerland = () => {
           Github Repository
         </a>
         <br />
-        <a className='custom-link' href="https://app.spline.design/file/0152f79b-5e0f-435d-80cd-187c654ccda2">
+        <a className='custom-link' href="https://app.spline.design/file/32ad7084-9459-4f49-b0b1-8003c4c84ab1">
           This spline project
         </a>
       </div>

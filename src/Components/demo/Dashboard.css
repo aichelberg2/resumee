@@ -22,14 +22,26 @@ button:active {
 }
 
 .container {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--house-control-bg);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
   vertical-align: middle;
   padding: 0 24px 24px;
   margin-top: 12px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
+  position: relative;
+}
+
+.container.open {
+  opacity: 1;
+  z-index: 10;
+  transition: opacity 0.5s ease;
 }
 
 .controls {
@@ -46,4 +58,28 @@ button:active {
 canvas {
   display: block;
   margin: 0 auto;
+}
+
+.close {
+  position: absolute;
+  top: 36px;
+  right: 56px;
+  cursor: pointer;
+  z-index: 999;
+  outline: #333 2px solid;
+  background-color: #0F0F0F;
+  padding: 6px 12px;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  text-align: center;
+}
+
+.close:hover {
+  background-color: #222;
+  transform: translateY(-2px);
+}
+
+.close:active {
+  transform: translateY(0);
+  background-color: #222;
 }

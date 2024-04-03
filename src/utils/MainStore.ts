@@ -22,6 +22,7 @@ export const isLandscapeAtom = atom<boolean>(
   window.matchMedia("(orientation: landscape)").matches
 );
 export const breakpointAtom = atom<"sm" | "lg">("lg");
+export const isDemoOpenAtom = atom<boolean>(false);
 
 // actions
 

@@ -1,15 +1,20 @@
 import { useTranslation } from 'react-i18next';
 import NextButton from '../components/NextButton';
-import Dashboard from '../components/demo/Dashboard';
-import { getJsxFromString } from '../utils/MainUtils';
+import { getImageFromSource, getJsxFromString } from '../utils/MainUtils';
+import { isDemoOpenAtom } from '../utils/MainStore';
+import { useAtom } from 'jotai';
 
 const Welcome = () => {
+  const [ , setIsDemoOpen ] = useAtom(isDemoOpenAtom);
   const { t } = useTranslation();
+
 
   return (
     <div className='home-automation'>
       {getJsxFromString('private-p1', t)}
-      <Dashboard />
+      <div className='clickable' onClick={() => setIsDemoOpen(true)}>
+        {getImageFromSource('house-control.png')}
+      </div>
       {getJsxFromString('private-p2', t)}
       <NextButton />
     </div >
