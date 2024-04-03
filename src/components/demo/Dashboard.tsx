@@ -160,14 +160,17 @@ const Dashboard = () => {
         <Toggle onToggle={simulateKeyPress} setIsLightVisible={setIsLightVisible} />
         <SwitchAllButtons onToggle={handleAllAction} isLightVisible={isLightVisible} />
       </div>
-      <Spline
-        scene='https://prod.spline.design/jvYex-jjqow1uScR/scene.splinecode'
-        onLoad={onLoad}
-        ref={splineRef}
-        className='spline-container'
-        style={{ width: '100%', height: 'auto' }}
-        onMouseDown={onMouseDown}
-      />
+      {isDemoOpen ? (
+        <Spline
+          scene='https://prod.spline.design/jvYex-jjqow1uScR/scene.splinecode'
+          onLoad={onLoad}
+          ref={splineRef}
+          className='spline-container'
+          style={{ width: '100%', height: 'auto' }}
+          onMouseDown={onMouseDown}
+        />)
+        :
+        null}
       <div className='floor'>
         {floor}
       </div>
