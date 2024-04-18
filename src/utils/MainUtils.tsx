@@ -6,7 +6,7 @@ import DigitalLearning from '../sidebar-pages/DigitalLearning';
 import CooperativeUniversity from '../sidebar-pages/CooperativeUniversity';
 import GantrySystem from '../sidebar-pages/GantrySystem';
 import ProductCatalog from '../sidebar-pages/ProductCatalog';
-import WeldingGuns from '../sidebar-pages/WeldingGuns';
+import AutomatedTesting from '../sidebar-pages/AutomatedTesting';
 import Switzerland from '../sidebar-pages/Switzerland';
 
 // type definitions
@@ -17,7 +17,7 @@ export type sidebarPageNameType =
   | 'Cooperative State University'
   | 'Gantry System'
   | 'Product Catalog'
-  | 'Welding Guns'
+  | 'Automated Testing'
   | 'Digital Learning'
   | 'Home Automation'
   | 'Switzerland';
@@ -32,7 +32,7 @@ export const sidebarPageMap: { [ key in sidebarPageNameType ]: JSX.Element } = {
   'Cooperative State University': <CooperativeUniversity />,
   'Gantry System': <GantrySystem />,
   'Product Catalog': <ProductCatalog />,
-  'Welding Guns': <WeldingGuns />,
+  'Automated Testing': <AutomatedTesting />,
   'Digital Learning': <DigitalLearning />,
   'Home Automation': <HomeAutomation />,
   'Switzerland': <Switzerland />,
@@ -43,7 +43,7 @@ export const sidebarPageIndexMap: { [ key in number ]: sidebarPageNameType } = {
   1: 'Cooperative State University',
   2: 'Gantry System',
   3: 'Product Catalog',
-  4: 'Welding Guns',
+  4: 'Automated Testing',
   5: 'Digital Learning',
   6: 'Home Automation',
   7: 'Switzerland',
@@ -88,7 +88,7 @@ export const iconMap: { [ key in sidebarPageNameType ]: string[] } = {
     'csharp.png',
     'visual-studio.png',
   ],
-  'Welding Guns': [
+  'Automated Testing': [
     'dotnet.png',
     'xunit.png',
     'codebeamer.png',

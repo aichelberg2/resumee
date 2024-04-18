@@ -21,13 +21,13 @@ const Switzerland = () => {
         </a>
         <br />
         <a className='custom-link' href="https://app.spline.design/file/32ad7084-9459-4f49-b0b1-8003c4c84ab1">
-          This spline project
+          Spline Map
         </a>
       </div>
       {getJsxFromString('switzerland-p6', t)}
       <div className="centered">
         <a className='custom-link' href="https://www.spline.design/">
-          spline.design
+          www.spline.design
         </a>
       </div >
       {getJsxFromString('switzerland-p7', t)}
